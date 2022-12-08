@@ -1,18 +1,18 @@
 #include <bits/stdc++.h>
 #include <graphics.h>
 
-typedef struct Node // ½¨Á¢Á´±íÀàĞÍ
+typedef struct Node // å»ºç«‹é“¾è¡¨ç±»å‹
 {
-	int a;
+	int a;//ä¸€èˆ¬æ•°æ®
 	struct Node *next;
 } node;
 
-int insert_node(node *head, int a, int i) // ²åÈëÁ´±í£¬aÎª²åÈëµÄÖµ£¬iÎª²åÈëµÄÎ»ÖÃ
+int insert_node(node *head, int a, int i) // æ’å…¥é“¾è¡¨ï¼Œaä¸ºæ’å…¥çš„å€¼ï¼Œiä¸ºæ’å…¥çš„ä½ç½®
 {
 	node *p1, *p2;
 	p1 = p2 = head;
 	int j = 1;
-	while (p1->next && j < i - 1)
+	while (p1->next && j < i - 1)//é€šè¿‡jæ¥æ‰¾ä½ç½®
 	{
 		p1 = p1->next;
 		j++;
@@ -23,7 +23,7 @@ int insert_node(node *head, int a, int i) // ²åÈëÁ´±í£¬aÎª²åÈëµÄÖµ£¬iÎª²åÈëµÄÎ»Ö
 		system("pause");
 		return 0;
 	}
-	if (i == 1) // ÅĞ¶Ï²åÈëµãÊÇ·ñµÚÒ»¸ö
+	if (i == 1) // åˆ¤æ–­æ’å…¥ç‚¹æ˜¯å¦ç¬¬ä¸€ä¸ª
 	{
 		p1 = (node *)malloc(sizeof(node));
 		p1->a = a;
@@ -45,7 +45,7 @@ int insert_node(node *head, int a, int i) // ²åÈëÁ´±í£¬aÎª²åÈëµÄÖµ£¬iÎª²åÈëµÄÎ»Ö
 	}
 }
 
-int delete_node_oder(node **head, int i) // É¾³ıÖ¸¶¨Î»ÖÃµÄ½Úµã
+int delete_node_oder(node **head, int i) // åˆ é™¤æŒ‡å®šä½ç½®çš„èŠ‚ç‚¹
 {
 	if (i <= 0)
 	{
@@ -104,7 +104,7 @@ int delete_node_oder(node **head, int i) // É¾³ıÖ¸¶¨Î»ÖÃµÄ½Úµã
 	return 1;
 }
 
-int delete_node_number(node **head, int a) // Í¨¹ıÉ¾³ıÖ¸¶¨Êı¾İµÄ½Úµã
+int delete_node_number(node **head, int a) // é€šè¿‡åˆ é™¤æŒ‡å®šæ•°æ®çš„èŠ‚ç‚¹ï¼Œç”¨äºŒçº§æŒ‡é’ˆå¯ä»¥ç›´æ¥ä¿®æ”¹mainä¸­çš„é“¾è¡¨
 {
 	node *p1, *p2;
 	p1 = p2 = *head;
@@ -150,7 +150,7 @@ int delete_node_number(node **head, int a) // Í¨¹ıÉ¾³ıÖ¸¶¨Êı¾İµÄ½Úµã
 	return 1;
 }
 
-int change_value(node *head, int i, int new_value) // ¸Ä±äÌØ¶¨½ÚµãµÄÖµ
+int change_value(node *head, int i, int new_value) // æ”¹å˜ç‰¹å®šèŠ‚ç‚¹çš„å€¼
 {
 	node *p1, *p2;
 	p1 = p2 = head;
@@ -177,26 +177,26 @@ int main()
 	node *head, *p1, *p2;
 	int n = 0;
 	int a;
-	printf("ÇëÊäÈë³õÊ¼Á´±í³¤¶È\n");
+	printf("è¯·è¾“å…¥åˆå§‹é“¾è¡¨é•¿åº¦\n");
 	scanf("%d", &n);
 	while (n <= 0)
 	{
-		printf("ÎŞĞ§Êı¾İ,ÇëÖØĞÂÊäÈë\n");
+		printf("æ— æ•ˆæ•°æ®,è¯·é‡æ–°è¾“å…¥\n");
 		scanf("%d", &n);
 	}
 
-	printf("ÇëÊäÈë½ÚµãÊı¾İ\n");
+	printf("è¯·è¾“å…¥èŠ‚ç‚¹æ•°æ®\n");
 	for (int i = 0; i < n; i++)
 	{
 		scanf("%d", &a);
-		if (i == 0) // ´´½¨Í·½Úµã
+		if (i == 0) // åˆ›å»ºå¤´èŠ‚ç‚¹
 		{
 			head = (node *)malloc(sizeof(node));
 			head->a = a;
 			head->next = NULL;
 			p1 = p2 = head;
 		}
-		else // ´´½¨Ò»°ã½Úµã
+		else // åˆ›å»ºä¸€èˆ¬èŠ‚ç‚¹
 		{
 			p1 = (node *)malloc(sizeof(node));
 			p1->a = a;
@@ -205,7 +205,7 @@ int main()
 			p2 = p1;
 		}
 	}
-	printf("Á´±í³õÊ¼Îª£º\n");
+	printf("é“¾è¡¨åˆå§‹ä¸ºï¼š\n");
 	for (p1 = head; p1->next != NULL; p1 = p1->next)
 	{
 		printf("%d ", p1->a);
@@ -213,14 +213,14 @@ int main()
 	printf("%d ", p1->a);
 	system("cls");
 
-	printf("ÏÖÓĞÊı¾İ:\n");
+	printf("ç°æœ‰æ•°æ®:\n");
 	for (p1 = head; p1->next != NULL; p1 = p1->next)
 	{
 		printf("%d ", p1->a);
 	}
 	printf("%d\n", p1->a);
-	printf("½ÓÏÂÀ´Òª\n1.´´½¨\n2.É¾³ı£¨Í¨¹ıÎ»ÖÃ£©\n3.É¾³ı£¨Í¨¹ıÊı¾İ£©\n4.²åÈë"
-		   "\n5.¸ÄÖµ\n6.ÍË³ö\n");
+	printf("æ¥ä¸‹æ¥è¦\n1.åˆ›å»º\n2.åˆ é™¤ï¼ˆé€šè¿‡ä½ç½®ï¼‰\n3.åˆ é™¤ï¼ˆé€šè¿‡æ•°æ®ï¼‰\n4.æ’å…¥"
+		   "\n5.æ”¹å€¼\n6.é€€å‡º\n");
 	int opt = 0;
 	scanf("%d", &opt);
 	int i = 0;
@@ -232,7 +232,7 @@ int main()
 		switch (opt)
 		{
 		case 1:
-			printf("ÇëÊäÈëÊı¾İ\n"); // ´´½¨µÄĞÂ½Úµã
+			printf("è¯·è¾“å…¥æ•°æ®\n"); // åˆ›å»ºçš„æ–°èŠ‚ç‚¹
 			scanf("%d", &a);
 			p2 = (node *)malloc(sizeof(node));
 			p2->a = a;
@@ -241,50 +241,50 @@ int main()
 			break;
 
 		case 2:
-			printf("ÇëÊäÈëÉ¾³ıµÄÎ»ÖÃ\n");
+			printf("è¯·è¾“å…¥åˆ é™¤çš„ä½ç½®\n");
 			scanf("%d", &i);
 			delete_node_oder(&head, i);
 			break;
 
 		case 3:
-			printf("ÇëÊäÈëÒªÉ¾³ı½ÚµãµÄÊı¾İ\n");
+			printf("è¯·è¾“å…¥è¦åˆ é™¤èŠ‚ç‚¹çš„æ•°æ®\n");
 			scanf("%d", &a);
 			delete_node_number(& head, a);
 			break;
 
 		case 4:
-			printf("ÇëÊäÈë²åÈëµÄ½ÚµãµÄÊı¾İºÍÎ»ÖÃ\n");
+			printf("è¯·è¾“å…¥æ’å…¥çš„èŠ‚ç‚¹çš„æ•°æ®å’Œä½ç½®\n");
 			scanf("%d%d", &a, &i);
 			insert_node(head, a, i);
 			break;
 
 		case 5:
-			printf("ÇëÊäÈëÒª¸Ä±äÎ»ÖÃºÍÖµ\n");
+			printf("è¯·è¾“å…¥è¦æ”¹å˜ä½ç½®å’Œå€¼\n");
 			scanf("%d %d", &i, &a);
 			change_value(head, i, a);
 			break;
 
 		case 6:
-			printf("È·ÈÏÍË³ö? 1(yes) 2(no) \n");
+			printf("ç¡®è®¤é€€å‡º? 1(yes) 2(no) \n");
 			scanf("%d", &a);
 			if (a == 1)
 				return 0;
 			else
 				break;
 		default:
-			printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë\n");
+			printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥\n");
 			system("pause");
 			break;
 		}
-		system("cls"); // ÇåÆÁ
-		printf("ÏÖÓĞÊı¾İ:\n");
+		system("cls"); // æ¸…å±
+		printf("ç°æœ‰æ•°æ®:\n");
 		for (p1 = head; p1->next != NULL; p1 = p1->next)
 		{
 			printf("%d ", p1->a);
 		}
 		printf("%d \n", p1->a);
-		printf("½ÓÏÂÀ´Òª\n1.´´½¨\n2.É¾³ı£¨Í¨¹ıÎ»ÖÃ£©\n3.É¾³ı£¨Í¨¹ıÊı¾İ£©\n4.²åÈë"
-			   "\n5.¸ÄÖµ\n6.ÍË³ö\n");
+		printf("æ¥ä¸‹æ¥è¦\n1.åˆ›å»º\n2.åˆ é™¤ï¼ˆé€šè¿‡ä½ç½®ï¼‰\n3.åˆ é™¤ï¼ˆé€šè¿‡æ•°æ®ï¼‰\n4.æ’å…¥"
+			   "\n5.æ”¹å€¼\n6.é€€å‡º\n");
 		scanf("%d", &opt);
 	}
 	system("pause");
